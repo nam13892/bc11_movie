@@ -1,0 +1,200 @@
+/* HEADER */
+header {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+#movieNavbar .navbar-nav {
+    border-bottom: 1px solid #ffffff;
+}
+
+#movieNavbar .navbar-nav .nav-item {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: white;
+    padding: 20px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    /* set vi tri position */
+    position: relative;
+}
+
+#movieNavbar .navbar-nav .nav-item:after {
+    content: '';
+    display: block;
+    height: 2px;
+
+    /* set width ve 0 để tạo hover */
+    width: 0;
+    /* #fbbd61,#ec7532 */
+    background: linear-gradient(to right, #fbbd61, #ec7532);
+    box-shadow: 0 0 20px 0 #fbbd61;
+
+    /* set vị trí position */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all .5s;
+}
+
+#movieNavbar .navbar-nav .nav-item:hover:after {
+    width: 100%;
+}
+
+#movieNavbar .navbar-nav .nav-item.active:after {
+    width: 100%;
+}
+
+/* CAROUSEL */
+#movieCarousel .carousel-caption {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+#movieCarousel .carousel-caption .pg {
+    font-size: 13px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#movieCarousel .carousel-caption .btn-trailer {
+    background: linear-gradient(to right, #fbbd61, #ec7532);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 40px;
+
+    /* set vị trí cho thẻ cha */
+    position: relative;
+
+    /* che những phần dư ra khỏi button */
+    overflow: hidden;
+}
+
+#movieCarousel .carousel-caption .btn-trailer::before {
+    content: '';
+    height: 100%;
+    padding: 20px 40px;
+    background-color: #ec7532;
+
+    /* set width về 0 để tạo hover */
+    width: 0;
+
+    /* tạo độ xéo cho background */
+    transform: skew(30deg);
+    position: absolute;
+    top: 0;
+    left: -90px;
+
+    /* tạo hiệu ứng mượt */
+    transition: all .5s;
+
+    /* độ ưu tiên hiển thị */
+    z-index: 0;
+}
+
+#movieCarousel .carousel-caption .btn-trailer:hover::before {
+    width: 150%;
+}
+
+#movieCarousel .carousel-caption .btn-trailer i,
+#movieCarousel .carousel-caption .btn-trailer span {
+    z-index: 1;
+
+    /* set vị trí cho icon và text */
+    position: relative;
+}
+
+#movieCarousel .carousel-indicators {
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* ghi đè lên css của thư viện BS4 */
+    justify-content: left;
+    padding-left: 15px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#movieCarousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    border: 2px solid #ffffff;
+    background-color: transparent;
+}
+
+#movieCarousel .carousel-indicators li.active {
+    background-color: white;
+
+    /* đổ màu từ border cho tới content */
+    background-clip: border-box;
+}
+
+/* NEW IN */
+.newIn__img {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* tạo background cho overlay */
+    background: linear-gradient(to top, #ec7532, #fbbd61);
+
+    width: 100%;
+    height: 100%;
+
+    opacity: .5;
+
+    /* tạo hiệu ứng */
+    transform: skew(30deg) translateX(-145%);
+
+    /* tạo hiệu ứng chuyển động mượt 
+    */
+    transition: all .5s;
+}
+
+.newIn__img:hover .overlay {
+    width: 200%;
+    transform: skew(30deg) translateX(-25%);
+}
+
+.newIn__play {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+
+    /* canh chỉnh nội dung vào giữa item */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* tạo hiệu ứng hover */
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all .5s;
+}
+
+.newIn__img:hover .newIn__play {
+    opacity: 1;
+    transform: scale(1);
+}
